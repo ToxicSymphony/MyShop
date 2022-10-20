@@ -32,7 +32,7 @@ public class sale extends AppCompatActivity {
     String name;
     String phone;
     String comision2;
-    String totalComision;
+    String aComision;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +44,9 @@ public class sale extends AppCompatActivity {
         Button add = findViewById(R.id.btnadd);
         Button search = findViewById(R.id.btnsearch);
         Button sellersView = findViewById(R.id.btnsellers);
+
+
+
 
 
 
@@ -119,39 +122,63 @@ public class sale extends AppCompatActivity {
                                                 }
                                             });
 
-                                    String comision = String.valueOf(parseInt(sSales)*2/100
-                                    );
+                                    String comision = String.valueOf(parseInt(sSales)*2/100);
 
                                     Map<String, Object> seller = new HashMap<>();
                                     seller.put("email", sellerEmail);
                                     seller.put("name", name);
                                     seller.put("phone", phone);
-                                    seller.put("comision", comision);
+
+
+                                    if(task.isSuccessful()){
+                                        if(comision2 == null){
+                                            seller.put("comision", comision);
+                                            myStore.collection("seller").document(idSeller)
+                                                    .set(seller)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            //Log.d("cliente", "DocumentSnapshot successfully written!");
+                                                            Toast.makeText(sale.this,"Has conseguido una comision :D...",Toast.LENGTH_SHORT).show();
+
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Log.w("cliente", "Error writing document", e);
+                                                        }
+                                                    });
+
+                                        }else{
+                                            comision = String.valueOf( parseInt(comision2)+parseInt(comision));
+                                            seller.put("comision", comision);
+                                            myStore.collection("seller").document(idSeller)
+                                                    .set(seller)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            //Log.d("cliente", "DocumentSnapshot successfully written!");
+                                                            Toast.makeText(sale.this,"Este valor se ha sumado a tu comision total :D...",Toast.LENGTH_SHORT).show();
+
+                                                        }
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Log.w("cliente", "Error writing document", e);
+                                                        }
+                                                    });
+
+
+                                        }
 
 
 
-                                    myStore.collection("seller").document(idSeller)
-                                            .set(seller)
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    //Log.d("cliente", "DocumentSnapshot successfully written!");
-                                                    Toast.makeText(sale.this,"Has conseguido una comision :D...",Toast.LENGTH_SHORT).show();
-                                                    Intent comision1 = new Intent();
-                                                    comision1.putExtra("comision", comision);
-                                                    startActivity(comision1);
+                                    }
 
 
 
-
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.w("cliente", "Error writing document", e);
-                                                }
-                                            });
 
                                 }else{
                                 Toast.makeText(getApplicationContext(),"Error ading sale",Toast.LENGTH_SHORT).show();

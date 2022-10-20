@@ -13,8 +13,8 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="729dp"
-            android:layout_height="730dp"
+            android:layout_width="736dp"
+            android:layout_height="741dp"
             android:background="#E84511"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -170,9 +170,12 @@
                 android:backgroundTint="#0272FA"
                 android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
                 android:text="Go to sales"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.509"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btndelete" />
+                app:layout_constraintTop_toBottomOf="@+id/btndelete"
+                app:layout_constraintVertical_bias="0.0" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

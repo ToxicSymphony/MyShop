@@ -130,32 +130,40 @@ public class MainActivity extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                 alertDialogBuilder.setMessage("Está seguro de eliminar el cliente con id "+email.getText().toString()+"?");
                 alertDialogBuilder.setPositiveButton("Sí",
                         new DialogInterface.OnClickListener() {
 
+
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
+                                if (comision.getText().toString().isEmpty()){
                                 myStore.collection("seller").document(idSeller)
                                         .delete()
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Toast.makeText(getApplicationContext(),"Cliente eliminado correctamente...",Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Cliente eliminado correctamente...", Toast.LENGTH_SHORT).show();
                                                 name.setText("");
                                                 email.setText("");
                                                 phone.setText("");
-
                                                 email.requestFocus();
                                             }
-                                        })
-                                        .addOnFailureListener(new OnFailureListener() {
+                                        }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception e) {
                                                 Log.w("cliente", "Error deleting document", e);
                                             }
-                                        });
+                                        });}
+                                else{
+                                    Toast.makeText(getApplicationContext(), "ya tienes comisiones", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         });
 
@@ -192,13 +200,13 @@ public class MainActivity extends AppCompatActivity {
                             if (task.getResult().isEmpty()) {
 
 
-                                Map<String, Object> customer = new HashMap<>();
-                                customer.put("email", sEmail);
-                                customer.put("name", sName);
-                                customer.put("phone", sPhone);
+                                Map<String, Object> seller = new HashMap<>();
+                                seller.put("email", sEmail);
+                                seller.put("name", sName);
+                                seller.put("phone", sPhone);
 
                                 myStore.collection("seller")
-                                        .add(customer)
+                                        .add(seller)
                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                             @Override
                                             public void onSuccess(DocumentReference documentReference) {

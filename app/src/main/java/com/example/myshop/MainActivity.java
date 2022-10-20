@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
        comision.setText(getIntent().getStringExtra("comision"));
 
+
+
+
+
         salesView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,35 +102,34 @@ public class MainActivity extends AppCompatActivity {
         });
 //
 //
-//        update.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Map<String, Object> customer = new HashMap<>();
-//                customer.put("fullname", fullname.getText().toString());
-//                customer.put("email", email.getText().toString());
-//                customer.put("password", password.getText().toString());
-//                customer.put("iden", iden.getText().toString());
-//
-//
-//                db.collection("customer").document(idCustomer)
-//                        .set(customer)
-//                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                            @Override
-//                            public void onSuccess(Void aVoid) {
-//                                //Log.d("cliente", "DocumentSnapshot successfully written!");
-//                                Toast.makeText(MainActivity.this,"Cliente actualizado correctmente...",Toast.LENGTH_SHORT).show();
-//
-//                            }
-//                        })
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Log.w("cliente", "Error writing document", e);
-//                            }
-//                        });
-//            }
-//        });
-//
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Map<String, Object> seller = new HashMap<>();
+                seller.put("email", email.getText().toString());
+                seller.put("name", name.getText().toString());
+                seller.put("phone", phone.getText().toString());
+                seller.put("comision", comision.getText().toString());
+
+                myStore.collection("seller").document(idSeller)
+                        .set(seller)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                //Log.d("cliente", "DocumentSnapshot successfully written!");
+                                Toast.makeText(MainActivity.this,"Cliente actualizado correctmente...",Toast.LENGTH_SHORT).show();
+
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Log.w("cliente", "Error writing document", e);
+                            }
+                        });
+            }
+        });
+
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

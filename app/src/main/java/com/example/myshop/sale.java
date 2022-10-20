@@ -32,7 +32,6 @@ public class sale extends AppCompatActivity {
     String name;
     String phone;
     String comision2;
-    String aComision;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,12 +122,10 @@ public class sale extends AppCompatActivity {
                                             });
 
                                     String comision = String.valueOf(parseInt(sSales)*2/100);
-
                                     Map<String, Object> seller = new HashMap<>();
                                     seller.put("email", sellerEmail);
                                     seller.put("name", name);
                                     seller.put("phone", phone);
-
 
                                     if(task.isSuccessful()){
                                         if(comision2 == null){

@@ -13,13 +13,15 @@
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="412dp"
+            android:layout_width="729dp"
             android:layout_height="730dp"
             android:background="#E84511"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:context=".MainActivity"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="0dp">
+            tools:ignore="MissingConstraints">
 
 
             <TextView
@@ -36,41 +38,39 @@
                 app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.161" />
+                app:layout_constraintVertical_bias="0.091" />
 
             <EditText
                 android:id="@+id/etemail"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
                 android:background="#FFBF00"
                 android:ems="10"
                 android:hint="E-mail"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
             <EditText
                 android:id="@+id/etname"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="24dp"
                 android:background="#FFBF00"
                 android:ems="10"
                 android:hint="Name"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etemail" />
 
             <EditText
                 android:id="@+id/etphone"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="24dp"
                 android:background="#FFBF00"
                 android:ems="10"
                 android:hint="Phone"
@@ -79,55 +79,35 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etname" />
 
-            <EditText
-                android:id="@+id/etcommision"
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="44dp"
                 android:background="#FFBF00"
                 android:ems="10"
-                android:hint="Commision"
+                android:gravity="center"
                 android:inputType="textPersonName"
+                android:text="Commision"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.345"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etphone" />
 
-            <Button
-                android:id="@+id/btnsearch"
+            <TextView
+                android:id="@+id/etcommision"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="112dp"
-                android:backgroundTint="#FFBF00"
-                android:text="search"
-                android:textColor="@color/black"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:background="#FFBF00"
+                android:ems="10"
+                android:gravity="center"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etphone" />
-
-            <Button
-                android:id="@+id/btnadd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="112dp"
-                android:backgroundTint="#FFBF00"
-                android:text="Add"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.092"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etphone" />
-
-            <Button
-                android:id="@+id/btnupdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="112dp"
-                android:backgroundTint="#FFBF00"
-                android:text="update"
-                android:textColor="@color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.921"
+                app:layout_constraintHorizontal_bias="0.672"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etphone" />
 
@@ -135,7 +115,7 @@
                 android:id="@+id/btndelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="24dp"
                 android:backgroundTint="#FFBF00"
                 android:text="Delete"
                 android:textColor="@color/black"
@@ -144,16 +124,55 @@
                 app:layout_constraintTop_toBottomOf="@+id/btnsearch" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnsearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="44dp"
-                android:text="Go to sales"
-                android:backgroundTint="#03A9F4"
-                app:layout_constraintBottom_toTopOf="@+id/textView3"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="#FFBF00"
+                android:text="search"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.949"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etphone" />
+
+            <Button
+                android:id="@+id/btnupdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="#FFBF00"
+                android:text="update"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.709"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etphone" />
+
+            <Button
+                android:id="@+id/btnadd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="120dp"
+                android:backgroundTint="#FFBF00"
+                android:text="Add"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.304"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etphone" />
+
+            <Button
+                android:id="@+id/btnsales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:backgroundTint="#0272FA"
+                android:drawableEnd="@drawable/ic_baseline_arrow_forward_24"
+                android:text="Go to sales"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btndelete" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

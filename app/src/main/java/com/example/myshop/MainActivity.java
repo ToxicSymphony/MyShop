@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseFirestore myStore = FirebaseFirestore.getInstance();
     String idSeller;
-    String totalcomision;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                alertDialogBuilder.setMessage("Está seguro de eliminar el cliente con id "+email.getText().toString()+"?");
+                alertDialogBuilder.setMessage("Are you sure to delete "+email.getText().toString()+" account ?");
                 alertDialogBuilder.setPositiveButton("Sí",
                         new DialogInterface.OnClickListener() {
 
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                Toast.makeText(getApplicationContext(), "Cliente eliminado correctamente...", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Seller deleted successfuly...", Toast.LENGTH_SHORT).show();
                                                 name.setText("");
                                                 email.setText("");
                                                 phone.setText("");
@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
                                             }
                                         });}
                                 else{
-                                    Toast.makeText(getApplicationContext(), "ya tienes comisiones", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "You cant delete this account becaus it have some sales", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

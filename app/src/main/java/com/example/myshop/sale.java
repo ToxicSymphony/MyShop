@@ -41,7 +41,6 @@ public class sale extends AppCompatActivity {
         EditText email = findViewById(R.id.etemail);
         EditText sales = findViewById(R.id.etsalevalue);
         Button add = findViewById(R.id.btnadd);
-        Button search = findViewById(R.id.btnsearch);
         Button sellersView = findViewById(R.id.btnsellers);
 
 
@@ -75,15 +74,11 @@ public class sale extends AppCompatActivity {
                                             name = document.getString("name");
                                             phone = document.getString("phone");
                                             comision2 = document.getString("comision");
-
-                                            Toast.makeText(sale.this,"1",Toast.LENGTH_SHORT).show();
-
                                         }
                                     }
                                 }
                             }
                         });
-
             }
         });
 
@@ -117,7 +112,7 @@ public class sale extends AppCompatActivity {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
                                                     //Log.w(TAG, "Error adding document", e);
-                                                    Toast.makeText(getApplicationContext(), "Error adding customer, please check if the internet conection is stable or if the service is running correctly", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getApplicationContext(), "Error adding sale, please check if the internet conection is stable or if the service is running correctly", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
 
@@ -136,7 +131,7 @@ public class sale extends AppCompatActivity {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
                                                             //Log.d("cliente", "DocumentSnapshot successfully written!");
-                                                            Toast.makeText(sale.this,"Has conseguido una comision :D...",Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(sale.this,"You have gained a commision :D...",Toast.LENGTH_SHORT).show();
 
                                                         }
                                                     })
@@ -156,7 +151,7 @@ public class sale extends AppCompatActivity {
                                                         @Override
                                                         public void onSuccess(Void aVoid) {
                                                             //Log.d("cliente", "DocumentSnapshot successfully written!");
-                                                            Toast.makeText(sale.this,"Este valor se ha sumado a tu comision total :D...",Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(sale.this,"The value of this commision was added successfuly to your total commision :D...",Toast.LENGTH_SHORT).show();
 
                                                         }
                                                     })
